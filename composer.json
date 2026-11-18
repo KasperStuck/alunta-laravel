@@ -1,0 +1,54 @@
+{
+  "name": "kasperstuck/alunta-laravel",
+  "description": "Laravel integration of the Alunta SDK: HTTP transport, configuration and services.",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^8.4",
+    "guzzlehttp/guzzle": "^7.8.2 || ^8.0",
+    "laravel/framework": "^13.35",
+    "kasperstuck/alunta-php-sdk": "^0.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "KasperStuck\\Alunta\\Laravel\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "KasperStuck\\Alunta\\Laravel\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "KasperStuck\\Alunta\\Laravel\\AluntaServiceProvider"
+      ]
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "name": "alunta-php-sdk",
+      "type": "vcs",
+      "url": "https://github.com/KasperStuck/alunta-php-sdk"
+    }
+  ],
+  "require-dev": {
+    "fakerphp/faker": "^1.24.1",
+    "larastan/larastan": "^3.13",
+    "pestphp/pest": "^5.3.1",
+    "phpstan/phpstan": "^2.3"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    },
+    "sort-packages": true
+  },
+  "scripts": {
+    "test": "pest --compact",
+    "analyse": "phpstan analyse --no-progress --memory-limit=1G"
+  }
+}
